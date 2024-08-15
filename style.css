@@ -1,0 +1,90 @@
+*{
+    margin: 0;/* two div tag ke bich ki distance ko margine kahte hai.*/
+    padding: 0;/* content and border ke bich ki distance */
+    box-sizing: border-box;
+
+}
+#wrapper{
+    height: 100vh;/* wrapper ki height ko viewport ki height ke equal kiya.Viewport ki maximum height 100vh hoti hai */
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;/* browser ka or z=0 vala plan ka aur meri eyes ke bich distance 10px hai */
+}
+.container{
+    position: relative;/* Agar mujhe dono image ki position ko absolute karna hai to nearest anccestor (container) ko nonstatic means relative karna pdega */
+    height: 100vh;
+    display: flex;/* flex me bydefault main exis horizontal hota hai */
+    justify-content: center;
+    align-items: center;
+
+    transform-style: preserve-3d;/* Jo bhi 3D changes mene kiye unko sabko preserve karna hai kisiko bhi htana nhi hai */
+    z-index: -1;
+}
+.background{
+    transform: translateZ(-40px) scale(5);
+}
+.foreground{
+    transform: translateZ(-20px) scale(3);
+}
+.background,.foreground{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* layering me konsi chij uper aayegi and konsi chij niche aayegi uske liye z-index set karna padta hai
+       default value z-index ki 0 hoti hai */
+    z-index: -1;/* -1 kyoki let say Adventure by default 0 par pda hai ya 0 se jyada value doge to chhup jayega aur km value doge to nhi chhupega*/
+}
+h1{
+    position: absolute;
+    top: 10rem;
+    transform: translate();
+    letter-spacing: 4px;
+    font-size: 10rem;
+    color: white;
+    background-color: cadetblue;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+section{
+    background-color: rgb(45,45,45);
+    color: white;
+    padding: 5rem 0;
+}
+.secHeading{
+    font-size: 5rem;
+    padding:0 10rem;/*for x, for y*/
+}
+.text{
+    font-size: 1.5rem;
+    padding:0 10;
+    margin: 5rem 0;
+}
+.bg{
+    position: relative;
+    width: 100%;
+    background-attachment: fixed;/* Isse background img fixed ho jayega aur chije uske upper move hogi otherwise img bhi sath-sath move hogi */
+    background-size: cover;/* isse img jyada badi hogi to vo puri display ki size ke according cover ho jayegi */
+    background-position: center;
+    height: 600px;
+}
+.desc{
+    position: absolute;
+    background-color: white;
+    padding: 0.5rem 2.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translatey(-50%);
+    color: black;
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+/* New Way of adding image */
+.bg1{
+    background-image: url(image/sport-1.jpg);
+}
+.bg2{
+    background-image: url(image/sport-2.jpg);
+}
+.bg3{
+    background-image: url(image/sport-3.jpg);
+}
